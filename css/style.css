@@ -1,5 +1,14 @@
 :root {
     /* ------- COLORS ------- */
+
+    --color-bg: hsl(0, 0%, 98%);
+    --color-gray-light: hsla(240, 10%, 57%, 25%);
+    --color-gray: hsl(240, 10%, 57%);
+    --color-gray-dark: hsl(240, 21%, 20%);
+    --color-blue: hsl(192, 37%, 48%);
+    --color-blue-light: hsl(192, 90%, 77%);
+    --color-violet: hsl(268, 34%, 53%);
+    --color-violet-light: hsl(268, 100%, 86%);
 }
 
 /* ------- BASIC ------- */
@@ -31,6 +40,7 @@ ul {
 }
 
 body {
+    color: var(--color-gray);
     font-weight: 400;
     font-size: 1.125rem;
     font-family: 'Red Hat Display', 'Arial', 'Helvetica', sans-serif;
@@ -53,13 +63,215 @@ a,
 a:link,
 a:visited,
 a:active {
+    border-radius: 50px;
+    display: inline-block;
+    font-size: 1rem;
+    padding: 1rem 2.5rem;
     text-decoration: none;
+    transition: background 0.3s ease-in-out;
+}
+
+a.hero__link {
+    background-color: var(--color-blue);
+    color: var(--color-bg);
+    font-weight: 900;
+    margin-bottom: 1rem;
+}
+
+a.hero__link--violet,
+a.footer__link--violet {
+    background-color: var(--color-violet);
+    color: var(--color-bg);
+    font-weight: 900;
+    text-shadow: 0px 0px 10px hsla(0, 0%, 0%, 0.274);
+    z-index: 1;
+}
+
+a.hero__link--blue {
+    background-color: var(--color-blue);
+    text-shadow: 0px 0px 10px hsla(0, 0%, 0%, 0.274);
+}
+
+a.hero__link > .color-blue {
+    color: var(--color-blue-light);
+}
+
+a.hero__link--violet:hover,
+a.footer__link--violet:hover {
+    background-color: var(--color-violet-light);
+}
+
+a.hero__link--blue:hover {
+    background-color: var(--color-blue-light);
+}
+
+a.footer__link > .color-violet {
+    color: var(--color-violet-light);
+}
+
+.header,
+.main,
+.footer {
+    max-width: 375px;
+    margin: 0 auto;
 }
 
 /* ------- HEADER ------- */
 
+.header {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 3rem 0;
+    max-width: 375px;
+}
+
+.header__logo {
+    margin-bottom: 3.375rem;
+}
+
 /* ------- SECTION HERO ------- */
 
-/* ------- SECTION MEETING ------- */
+.hero {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 0 1.5rem;
+}
+
+.hero__title {
+    color: var(--color-gray-dark);
+    font-size: 2.5rem;
+    font-weight: 900;
+    line-height: 44px;
+    text-align: center;
+}
+
+.hero__description {
+    padding: 1.5rem 0;
+    text-align: center;
+}
+
+/* ------- SECTION ABOUT ------- */
+
+.about {
+    margin-top: 8rem;
+}
+
+.section-page {
+    height: 140px;
+    margin: 0 auto;
+    position: relative;
+    width: 56px;
+}
+
+.section-page:last-of-type {
+    left: 50%;
+    position: absolute;
+    top: -1.75rem;
+    transform: translateX(-50%);
+}
+
+.section-page::before {
+    background-color: var(--color-gray-light);
+    content: '';
+    height: 84px;
+    left: 28px;
+    position: absolute;
+    top: -84px;
+    width: 1px;
+}
+
+.section-page__nr {
+    border: 1px solid var(--color-gray-light);
+    background-color: var(--color-bg);
+    border-radius: 50px;
+    color: var(--color-gray);
+    font-weight: 900;
+    height: 56px;
+    line-height: 56px;
+    text-align: center;
+    width: 56px;
+}
+
+.about__images {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+    padding: 0 1.5rem;
+    margin-bottom: 4rem;
+}
+
+.about__image {
+    border-radius: 0.5em;
+}
+
+.about__subtitle {
+    color: var(--color-blue);
+    font-size: 1rem;
+    font-weight: 900;
+    margin-bottom: 1.5rem;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    text-align: center;
+}
+
+.about__title {
+    color: var(--color-gray-dark);
+    font-size: 2rem;
+    font-weight: 900;
+    margin: 0 auto 2rem auto;
+    line-height: 36px;
+    padding: 0 1.5rem;
+    text-align: center;
+}
+
+.about__description {
+    padding: 0 1.5rem;
+    text-align: center;
+}
 
 /* ------- FOOTER ------- */
+
+.footer {
+    align-items: center;
+    background: var(--color-blue) url(../assets/mobile/image-footer.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-blend-mode: multiply;
+    color: var(--color-bg);
+    display: flex;
+    flex-direction: column;
+    margin-top: 12rem;
+    position: relative;
+    padding-bottom: 4.5rem;
+    max-width: 375px;
+}
+
+.footer__overlay {
+    background-color: var(--color-blue);
+    height: 100%;
+    position: absolute;
+    opacity: 0.8;
+    width: 100%;
+    z-index: 0;
+}
+
+.footer__title {
+    font-weight: 900;
+    font-size: 2rem;
+    line-height: 36px;
+    padding: 5.75rem 1.5rem 1.5rem 1.5rem;
+    text-align: center;
+    z-index: 1;
+}
+
+.footer__description {
+    padding: 0 2rem 2rem 2rem;
+    text-align: center;
+    z-index: 1;
+}
+
+/* ------- PHONE ------- */
